@@ -39,7 +39,7 @@ export default {
           name: "Travel Nomads",
           imageUrl: "nomads",
           status:
-            "Nomads Travel, a web application for booking travel with a responsive interface, island vacation category.",
+            "Nomads Travel, a web  application for booking travel with a responsive interface, island vacation category.",
           tech: "PHP, Laravel",
           github: "null",
           demo: "null",
