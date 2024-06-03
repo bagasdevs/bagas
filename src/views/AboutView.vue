@@ -128,7 +128,7 @@ export default {
         <div class="flex justify-center">
           <img
             class="w-9/12 rounded-full mb-3 fadein-up"
-            src="https://media.licdn.com/dms/image/D5603AQEzRlnUQnrnoQ/profile-displayphoto-shrink_800_800/0/1695710527077?e=1709769600&v=beta&t=SFakU3vJ_7A0n5RkmVrhKgqjlvvWsJa23Pt-6neXpv8"
+            src="https://i.ibb.co.com/DfLCCsY/bagas2.jpg"
             alt="Foto"
           />
         </div>

@@ -49,7 +49,7 @@ export default {
           name: "Portfolio v1",
           imageUrl: "v1",
           status: "My previous portfolio that has been updated to the present.",
-          tech: "Vue, Tailwind",
+          tech: "Vue JS, Tailwind",
           github: "null",
           demo: "null",
         },
@@ -60,6 +60,16 @@ export default {
           status:
             "A application make it easier for Muslims to read the Quran from anywhere.",
           tech: "Flutter",
+          github: "null",
+          demo: "null",
+        },
+        {
+          id: 7,
+          name: "Euna Shop",
+          imageUrl: "onlineshop",
+          status:
+            "An app that makes it easy to shop online from anywhere with convenient and fast usage.",
+          tech: "Vue JS",
           github: "null",
           demo: "null",
         },

@@ -39,7 +39,7 @@
         decoding="async"
         data-nimg="1"
         class="w-10/12 md:h-auto rounded-full border-4 border-amber-200 pict"
-        src="https://media.licdn.com/dms/image/D5603AQEzRlnUQnrnoQ/profile-displayphoto-shrink_800_800/0/1695710527077?e=1709769600&v=beta&t=SFakU3vJ_7A0n5RkmVrhKgqjlvvWsJa23Pt-6neXpv8"
+        src="https://i.ibb.co.com/DfLCCsY/bagas2.jpg"
       />
     </div>
   </main>
