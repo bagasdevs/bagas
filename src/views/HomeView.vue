@@ -43,15 +43,17 @@
         <!-- Placeholder to prevent layout shift -->
         <div class="aspect-square rounded-full border-4 border-amber-200 bg-gray-800 animate-pulse" v-if="!imageLoaded"></div>
         <img
-          alt="Bagas Cahya Profile"
+          alt="Bagas Cahya Pamungkas - Web Developer specializing in PHP, Laravel, and Vue.js"
           fetchpriority="high"
-          width="300"
-          height="300"
+          width="335"
+          height="335"
           decoding="async"
           data-nimg="1"
           class="w-full h-full rounded-full border-4 border-amber-200 pict hover:shadow-2xl transition-all duration-500 ease-in-out object-cover"
           :class="{ 'opacity-0': !imageLoaded, 'opacity-100': imageLoaded }"
           src="https://i.ibb.co/DfLCCsY/bagas2.jpg"
+          srcset="https://i.ibb.co/DfLCCsY/bagas2.jpg 335w"
+          sizes="(max-width: 768px) 280px, 335px"
           loading="eager"
           @load="imageLoaded = true"
           @error="handleImageError"

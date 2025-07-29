@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     
-    <!-- Preconnect to external origins -->
+    <!-- Preconnect to external origins for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://i.ibb.co">
+    <link rel="preconnect" href="https://i.ibb.co" crossorigin>
+    
+    <!-- DNS prefetch for additional performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://i.ibb.co">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"></noscript>
+    
+    <!-- Preload hero image for LCP optimization -->
+    <link rel="preload" href="https://i.ibb.co/DfLCCsY/bagas2.jpg" as="image" fetchpriority="high">
     
     <!-- Meta tags for SEO -->
     <meta name="description" content="Bagas Cahya Pamungkas - Web Developer Portfolio. Experienced in back-end development, Vue.js, PHP, Laravel and modern web technologies. View my projects and get in touch for collaborations.">
@@ -71,21 +78,34 @@
     
     <title>Bagas Cahya - Web Developer Portfolio | PHP, Laravel, Vue.js</title>
     
-    <!-- Critical CSS inline for faster rendering -->
+    <!-- Critical CSS inline for faster rendering and reduced CLS -->
     <style>
-      /* Critical above-the-fold styles */
+      /* Critical above-the-fold styles with performance optimizations */
+      html {
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+      }
+      
       body {
-        font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         background: hsl(0, 0%, 7%);
         color: #2c3e50;
         margin: 0;
         padding: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        font-display: swap;
       }
       
+      /* Optimize layout shifts */
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Critical layout styles */
       .max-w-7xl {
         max-width: 80rem;
+        width: 100%;
       }
       
       .mx-auto {
@@ -101,21 +121,83 @@
         color: #fde68a;
       }
       
-      /* Prevent layout shift */
+      /* Prevent layout shift with consistent heights */
       .min-h-screen {
         min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile */
       }
       
-      /* Loading state */
+      /* Image optimization to prevent CLS */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      /* Container for images with aspect ratio */
+      .aspect-square {
+        aspect-ratio: 1 / 1;
+      }
+      
+      .aspect-video {
+        aspect-ratio: 16 / 9;
+      }
+      
+      /* Navigation critical styles */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(8px);
+        background: rgba(17, 24, 39, 0.8);
+      }
+      
+      /* Loading state optimization */
       .loading-placeholder {
         background: linear-gradient(90deg, #1f1f1f 25%, #2a2a2a 50%, #1f1f1f 75%);
         background-size: 200% 100%;
         animation: loading 1.5s infinite;
+        border-radius: 8px;
       }
       
       @keyframes loading {
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
+      }
+      
+      /* Critical animation styles for LCP optimization */
+      .fade-enter-active, .fade-leave-active {
+        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .fade-enter-from, .fade-leave-to {
+        opacity: 0;
+      }
+      
+      /* Optimize hero section for LCP */
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      
+      /* Critical button styles */
+      .btn-primary {
+        background: linear-gradient(45deg, #f59e0b, #d97706);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+      
+      .btn-primary:hover {
+        transform: translateY(-2px);
       }
     </style>
     <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->

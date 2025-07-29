@@ -16,6 +16,16 @@ module.exports = defineConfig({
         }
         return args
       })
+    
+    // Optimize CSS loading to reduce render blocking
+    if (process.env.NODE_ENV === 'production') {
+      config.plugin('extract-css').tap(([options]) => [
+        Object.assign(options, {
+          filename: 'css/[name].[contenthash:8].css',
+          chunkFilename: 'css/[name].[contenthash:8].css'
+        })
+      ])
+    }
   },
   
   // Performance optimizations
@@ -55,18 +65,44 @@ module.exports = defineConfig({
   // Production optimizations
   productionSourceMap: false,
   
-  // CSS optimizations
+  // CSS optimizations to reduce render blocking
   css: {
     extract: process.env.NODE_ENV === 'production' ? {
-      ignoreOrder: true
+      ignoreOrder: true,
+      // Optimize CSS extraction for faster loading
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css'
     } : false,
     loaderOptions: {
       postcss: {
         postcssOptions: {
           plugins: [
-            require('autoprefixer')
+            require('autoprefixer'),
+            ...(process.env.NODE_ENV === 'production' ? [
+              require('cssnano')({
+                preset: ['default', {
+                  discardComments: { removeAll: true },
+                  normalizeWhitespace: false,
+                  mergeLonghand: false
+                }]
+              })
+            ] : [])
           ]
         }
+      }
+    }
+  },
+  
+  // Additional performance optimizations
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      // Optimize chunks for better caching
+      config.optimization.splitChunks.cacheGroups.styles = {
+        name: 'styles',
+        test: /\.(css|less|sass|scss|styl)$/,
+        chunks: 'all',
+        enforce: true,
+        priority: 2
       }
     }
   }
