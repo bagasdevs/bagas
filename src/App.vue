@@ -51,13 +51,6 @@
                 >Portfolio</router-link
               >
             </li>
-            <li>
-              <router-link
-                to="/blog"
-                class="fadein-bot fadein-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-gray-500 md:p-0 blog"
-                >Blog</router-link
-              >
-            </li>
           </ul>
         </div>
       </div>
@@ -79,9 +72,6 @@
       >
       <router-link to="/portfolio" class="text-gray-300 hover:text-white"
         >Portfolio</router-link
-      >
-      <router-link to="/blog" class="text-gray-300 hover:text-white"
-        >Blog</router-link
       >
     </nav>
   </footer>
@@ -175,5 +165,154 @@ nav a.router-link-exact-active:hover {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -10px, 0);
+  }
+  70% {
+    transform: translate3d(0, -5px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Fade-in animation classes */
+.fadein-bot {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.fadein-1 {
+  animation-delay: 0.1s;
+}
+
+.fadein-2 {
+  animation-delay: 0.2s;
+}
+
+.fadein-3 {
+  animation-delay: 0.3s;
+}
+
+.fadein-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.fadein-right {
+  animation: fadeInRight 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.fadein-left {
+  animation: fadeInLeft 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in-from-left {
+  animation: fadeInLeft 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-up {
+  animation: slideInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.bounce-hover:hover {
+  animation: bounce 1s;
+}
+
+/* Performance optimizations */
+.pict {
+  will-change: transform;
+  transition: transform 0.3s ease;
+}
+
+.pict:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Hardware acceleration for animations */
+.fadein-bot,
+.fadein-up,
+.fadein-right,
+.fadein-left,
+.fade-in-from-left,
+.scale-in,
+.slide-up {
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 </style>

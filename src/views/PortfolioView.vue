@@ -83,12 +83,11 @@ export default {
     <article data-page="about">
       <header>
         <div
-          class="text-2xl font-bold text-white mb-10 fadein-bot title-section flex items-center justify-center flex-col"
+          class="text-2xl font-bold text-white mb-10 slide-up title-section flex items-center justify-center flex-col"
         >
-          <!-- <div class="h-[1px] w-10 bg-amber-200 md:w-20 aos-init aos-animate"></div> -->
-          <h4>Past Project Experience</h4>
+          <h4 class="scale-in">Past Project Experience</h4>
           <h4
-            class="text-base font-normal text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300"
+            class="text-base font-normal text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 fade-in-delayed"
           >
             Explore the projects I've worked on so far
           </h4>
@@ -97,37 +96,42 @@ export default {
       <section>
         <div>
           <div
-            class="grid grid-cols-1 gap-4 pb-32 md:grid-cols-3 md:gap-3 xl:grid-cols-3 xl:gap-3 2xl:gap-5 fade-zoom-in"
+            class="grid grid-cols-1 gap-4 pb-32 md:grid-cols-3 md:gap-3 xl:grid-cols-3 xl:gap-3 2xl:gap-5"
           >
-            <div v-for="item in items" :key="item.id">
+            <div 
+              v-for="(item, index) in items" 
+              :key="item.id"
+              class="portfolio-item"
+              :style="{ animationDelay: `${index * 0.1}s` }"
+            >
               <div
-                class="item-card flex flex-col items-center gap-2 rounded bg-[#1e1e1f] hover:bg-[#282828] border border-[#383838] rounded-xl text-amber-50 md:gap-3 px-5 py-5 lg:px-5"
+                class="item-card flex flex-col items-center gap-2 rounded bg-[#1e1e1f] hover:bg-[#282828] border border-[#383838] rounded-xl text-amber-50 md:gap-3 px-5 py-5 lg:px-5 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:border-amber-200/30"
               >
                 <div
-                  class="flex h-12 w-12 items-center justify-center p-0 h-full w-full lg:p-0 zoom-in"
+                  class="flex h-12 w-12 items-center justify-center p-0 h-full w-full lg:p-0 image-container"
                 >
                   <img
-                    alt="HTML"
+                    alt="Project Image"
                     loading="lazy"
                     decoding="async"
                     data-nimg="1"
-                    class="drop-shadow-xl rounded rounded-xl"
+                    class="drop-shadow-xl rounded rounded-xl transition-transform duration-300 hover:scale-110"
                     :src="'/img/portfolio-' + item.imageUrl + '.png'"
                   />
                 </div>
                 <div
                   class="w-full flex flex-col gap-2 items-center text-sm md:text-base lg:text-lg"
                 >
-                  <div class="title-text font-medium text-secondary">
+                  <div class="title-text font-medium text-secondary transition-colors duration-300 hover:text-amber-200">
                     {{ item.name }}
                   </div>
                   <div
-                    class="w-full text-left text-[10px] text-[#c1c1c1] md:text-xs lg:text-sm"
+                    class="w-full text-left text-[10px] text-[#c1c1c1] md:text-xs lg:text-sm leading-relaxed"
                   >
                     {{ item.status }}
                   </div>
                   <div
-                    class="w-full mt-4 text-normal text-sm text-left text-amber-200"
+                    class="w-full mt-4 text-normal text-sm text-left text-amber-200 font-medium"
                   >
                     {{ item.tech }}
                   </div>
@@ -141,7 +145,7 @@ export default {
                         target="_blank"
                         rel="noreferrer"
                         title="View github repository"
-                        class="transition-all hover:text-accent"
+                        class="transition-all duration-300 hover:text-amber-200 hover:scale-125 transform"
                       >
                         <svg
                           stroke="currentColor"
@@ -164,7 +168,7 @@ export default {
                         target="_blank"
                         rel="noreferrer"
                         title="View finished project"
-                        class="transition-all hover:text-accent"
+                        class="transition-all duration-300 hover:text-amber-200 hover:scale-125 transform"
                       >
                         <svg
                           stroke="currentColor"
@@ -195,27 +199,138 @@ export default {
   </div>
 </template>
 
-<style>
-.item-card:hover {
-  transition: transform 0.3s ease;
-  transform: translateY(-8px);
+<style scoped>
+/* Performance optimized animations */
+.portfolio-item {
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out forwards;
+  will-change: transform, opacity;
 }
-svg:hover {
-  stroke: #ffdb70;
-}
-@keyframes fadeZoomIn {
+
+@keyframes slideInUp {
   0% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: translate3d(0, 50px, 0);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-/* Menggunakan animasi pada elemen yang diinginkan */
-.fade-zoom-in {
-  animation: fadeZoomIn 1s ease-in-out;
+.slide-up {
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.scale-in {
+  opacity: 0;
+  animation: scaleIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  will-change: transform, opacity;
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+.fade-in-delayed {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+  will-change: opacity;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.item-card {
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.item-card:hover {
+  transform: translateY(-8px) scale(1.02) translateZ(0);
+  box-shadow: 0 20px 40px rgba(255, 219, 112, 0.1);
+}
+
+.image-container img {
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced hover effects */
+.title-text {
+  transition: color 0.3s ease;
+}
+
+/* Icon hover animations */
+svg {
+  will-change: transform;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+svg:hover {
+  stroke: #ffdb70;
+  transform: translateY(-2px) scale(1.1) translateZ(0);
+}
+
+/* Staggered animation for grid items */
+.portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+.portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+.portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+.portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+.portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+.portfolio-item:nth-child(6) { animation-delay: 0.6s; }
+.portfolio-item:nth-child(7) { animation-delay: 0.7s; }
+
+/* Responsive optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-item,
+  .slide-up,
+  .scale-in,
+  .fade-in-delayed {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .item-card:hover,
+  svg:hover {
+    transform: none !important;
+  }
+}
+
+/* Performance improvements for mobile */
+@media (max-width: 768px) {
+  .item-card:hover {
+    transform: translateY(-4px) translateZ(0);
+  }
 }
 </style>
