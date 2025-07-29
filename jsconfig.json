@@ -4,6 +4,7 @@
     "module": "esnext",
     "baseUrl": "./",
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "paths": {
       "@/*": [
         "src/*"
@@ -15,5 +16,8 @@
       "dom.iterable",
       "scripthost"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
