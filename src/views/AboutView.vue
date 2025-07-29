@@ -124,12 +124,17 @@ export default {
         class="text-sm md:text-lg text-justify flex flex-col gap-4 md:flex-row md:gap-8 md:justify-left md:items-center"
       >
         <div class="flex justify-center">
-          <img
-            class="w-9/12 rounded-full mb-3 image-fade-in hover:scale-105 transition-transform duration-500"
-            src="https://i.ibb.co/mFgw9F9K/profile.jpg"
-            alt="Profile Photo"
-            loading="lazy"
-          />
+          <div class="w-9/12 relative">
+            <img
+              class="w-full rounded-full mb-3 image-fade-in hover:scale-105 transition-transform duration-500 object-cover aspect-square"
+              src="https://i.ibb.co/mFgw9F9K/profile.jpg"
+              alt="Bagas Cahya Profile Photo"
+              loading="lazy"
+              width="300"
+              height="300"
+              decoding="async"
+            />
+          </div>
         </div>
         <div class="md:w-7/12">
           <p class="mb-3 md:mb-7 text-slide-in text-slide-1">

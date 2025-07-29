@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bagas.site/sitemap.xml
+
+# Disallow crawling of development and testing files
+Disallow: /test/
+Disallow: /dev/
+Disallow: /*.json$
+Disallow: /*.js.map$
+Disallow: /*.css.map$
+
+# Allow crawling of important resources
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Allow: /favicon.ico
+
+# Crawl delay (optional - be respectful to search engines)
+Crawl-delay: 1

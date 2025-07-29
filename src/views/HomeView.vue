@@ -39,17 +39,24 @@
       </div>
     </div>
     <div class="flex justify-center md:justify-start fadein-right">
-      <img
-        alt="avatar"
-        fetchpriority="high"
-        width="300"
-        height="300"
-        decoding="async"
-        data-nimg="1"
-        class="w-10/12 md:h-auto rounded-full border-4 border-amber-200 pict hover:shadow-2xl transition-all duration-500 ease-in-out"
-        src="https://i.ibb.co/mFgw9F9K/profile.jpg"
-        loading="eager"
-      />
+      <div class="w-10/12 md:h-auto relative">
+        <!-- Placeholder to prevent layout shift -->
+        <div class="aspect-square rounded-full border-4 border-amber-200 bg-gray-800 animate-pulse" v-if="!imageLoaded"></div>
+        <img
+          alt="Bagas Cahya Profile"
+          fetchpriority="high"
+          width="300"
+          height="300"
+          decoding="async"
+          data-nimg="1"
+          class="w-full h-full rounded-full border-4 border-amber-200 pict hover:shadow-2xl transition-all duration-500 ease-in-out object-cover"
+          :class="{ 'opacity-0': !imageLoaded, 'opacity-100': imageLoaded }"
+          src="https://i.ibb.co/DfLCCsY/bagas2.jpg"
+          loading="eager"
+          @load="imageLoaded = true"
+          @error="handleImageError"
+        />
+      </div>
     </div>
   </main>
 </template>
@@ -69,7 +76,8 @@ export default {
       txt: "",
       loopNum: 0,
       isDeleting: false,
-      delta: 200
+      delta: 200,
+      imageLoaded: false
     };
   },
   mounted() {
@@ -127,7 +135,11 @@ export default {
         this.tick();
       }, delta);
     },
-  },
+    handleImageError() {
+      console.warn('Profile image failed to load');
+      this.imageLoaded = true; // Still show the container
+    }
+  }
 };
 </script>
 
@@ -307,5 +319,31 @@ button:active {
   button:hover {
     transform: none !important;
   }
+}
+
+/* Image loading optimization */
+.aspect-square {
+  aspect-ratio: 1;
+}
+
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Prevent layout shift during image loading */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* 1:1 Aspect Ratio */
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

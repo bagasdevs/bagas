@@ -1,12 +1,123 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="id">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Preconnect to external origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.ibb.co">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"></noscript>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Bagas Cahya Pamungkas - Web Developer Portfolio. Experienced in back-end development, Vue.js, PHP, Laravel and modern web technologies. View my projects and get in touch for collaborations.">
+    <meta name="keywords" content="web developer, portfolio, bagas cahya, back-end developer, vue.js, php, laravel, javascript, frontend developer, fullstack developer">
+    <meta name="author" content="Bagas Cahya Pamungkas">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#111827">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bagas Cahya - Web Developer Portfolio">
+    <meta property="og:description" content="Experienced web developer specializing in back-end development with modern web technologies. View my projects and get in touch for collaborations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bagas.site">
+    <meta property="og:image" content="https://bagas.site/img/portfolio-v1.png">
+    <meta property="og:site_name" content="Bagas Cahya Portfolio">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bagas Cahya - Web Developer Portfolio">
+    <meta name="twitter:description" content="Experienced web developer specializing in back-end development with modern web technologies.">
+    <meta name="twitter:image" content="https://bagas.site/img/portfolio-v1.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bagas.site">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bagas Cahya Pamungkas",
+      "jobTitle": "Web Developer",
+      "description": "Experienced web developer specializing in back-end development with modern web technologies including PHP, Laravel, Vue.js, and JavaScript.",
+      "url": "https://bagas.site",
+      "image": "https://bagas.site/img/portfolio-v1.png",
+      "sameAs": [
+        "https://github.com/bagascahya",
+        "https://linkedin.com/in/bagascahya"
+      ],
+      "knowsAbout": [
+        "Web Development",
+        "Back-end Development",
+        "PHP",
+        "Laravel",
+        "Vue.js",
+        "JavaScript",
+        "Frontend Development"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance Web Developer"
+      }
+    }
+    </script>
+    
+    <title>Bagas Cahya - Web Developer Portfolio | PHP, Laravel, Vue.js</title>
+    
+    <!-- Critical CSS inline for faster rendering -->
+    <style>
+      /* Critical above-the-fold styles */
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: hsl(0, 0%, 7%);
+        color: #2c3e50;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      .max-w-7xl {
+        max-width: 80rem;
+      }
+      
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .text-white {
+        color: #ffffff;
+      }
+      
+      .text-amber-200 {
+        color: #fde68a;
+      }
+      
+      /* Prevent layout shift */
+      .min-h-screen {
+        min-height: 100vh;
+      }
+      
+      /* Loading state */
+      .loading-placeholder {
+        background: linear-gradient(90deg, #1f1f1f 25%, #2a2a2a 50%, #1f1f1f 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+    </style>
     <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
 
   </head>
