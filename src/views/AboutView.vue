@@ -139,7 +139,7 @@ export default {
         <div class="md:w-7/12">
           <p class="mb-3 md:mb-7 text-slide-in text-slide-1">
             &nbsp; &nbsp; &nbsp; Hi everyone! My name is Bagas Cahya Pamungkas.
-            I'm a web developer from Magelang, Central Java. I have 2.5 year of
+            I'm a web developer from Kaliangkrik Magelang, Central Java. I have 2.5 year of
             experience in back-end web development. I really enjoy what I do
             right now, in my opinion, creating programs is not just a job, but
             also an art that has aesthetic value

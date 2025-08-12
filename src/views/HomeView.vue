@@ -15,9 +15,23 @@
           <span class="wrap">{{ txt }}</span>
         </h1>
       </div>
-      <p class="text-white pr-4 fade-in-from-left">
-        Welcome to My personal website. <span class="wave bounce-hover">👋🏼</span>
-      </p>
+      <div class="text-white pr-4 fade-in-from-left space-y-4">
+        <!-- <p class="leading-relaxed">
+          Welcome to my personal website 
+          <span class="wave bounce-hover">👋🏼</span>
+        </p> -->
+        <p class="leading-relaxed">
+          My blockchain portfolio project 
+          <a 
+        href="https://bagas.in" 
+        class="text-amber-200 hover:text-amber-300 underline hover:no-underline transition-colors duration-300 font-medium" 
+        target="_blank" 
+        rel="noopener noreferrer"
+          >
+        bagas.in
+          </a>
+        </p>
+      </div>
       <br />
       <div class="slide-up" style="animation-delay: 1s;">
         <button
