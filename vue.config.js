@@ -8,10 +8,10 @@ module.exports = defineConfig({
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = 'Bagas Cahya - Web Developer Portfolio | PHP, Laravel, Vue.js'
+        args[0].title = 'Bagas Pamungkas - Web Developer Portfolio | PHP, Laravel, Vue.js'
         args[0].meta = {
           description: 'Bagas Cahya Pamungkas - Web Developer Portfolio. Experienced in back-end development, Vue.js, PHP, Laravel and modern web technologies.',
-          keywords: 'web developer, portfolio, bagas cahya, back-end developer, vue.js, php, laravel, javascript',
+          keywords: 'web developer, portfolio, bagas pamungkas, back-end developer, vue.js, php, laravel, javascript',
           author: 'Bagas Cahya Pamungkas'
         }
         return args

@@ -5,7 +5,7 @@
     <div class="space-y-2 text-center md:text-left px-10">
       <p class="text-amber-200 slide-up">Hello World, I'm</p>
       <h1 class="text-4xl font-bold md:text-5xl text-white fadein-up">
-        Bagas Cahya
+        Bagas Pamungkas
       </h1>
       <div class="py-2">
         <h1

@@ -128,7 +128,7 @@ export default {
             <img
               class="w-full rounded-full mb-3 image-fade-in hover:scale-105 transition-transform duration-500 object-cover aspect-square"
               src="https://i.ibb.co/mFgw9F9K/profile.jpg"
-              alt="Bagas Cahya Profile Photo"
+              alt="Bagas Pamungkas Profile Photo"
               loading="lazy"
               width="300"
               height="300"
